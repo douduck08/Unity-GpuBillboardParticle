@@ -1,0 +1,21 @@
+﻿#pragma kernel CSMain
+
+struct Particle {
+    float3 position;
+    float3 velocity;
+    float3 color;
+};
+
+RWStructuredBuffer<Particle> particleBuffer;
+float deltaTime;
+
+[numthreads(512, 1, 1)]
+void CSMain (uint3 id : SV_DispatchThreadID) {
+    float3 gravity = normalize(-particleBuffer[id.x].position) * 9.8;
+
+    particleBuffer[id.x].velocity += gravity * deltaTime;
+    particleBuffer[id.x].position += particleBuffer[id.x].velocity * deltaTime;
+
+    float len = length(particleBuffer[id.x].velocity);
+    particleBuffer[id.x].color = float3(1.0, saturate(len / 60.0 + 0.2), 0.0);
+}
