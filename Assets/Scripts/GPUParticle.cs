@@ -65,7 +65,7 @@ public class GPUParticle : MonoBehaviour {
     void Update () {
         if (updateParticle) {
             updateParticleShader.SetFloat ("deltaTime", Time.deltaTime);
-            updateParticleShader.Dispatch (computeShaderKernelID, 512, 1, 1);
+            updateParticleShader.Dispatch (computeShaderKernelID, particleNumber, 1, 1);
         }
     }
 

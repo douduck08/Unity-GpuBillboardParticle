@@ -8,6 +8,10 @@
         LOD 100
 
         Pass {
+            Blend One Zero
+            ZWrite Off
+            ZTest On
+
             CGPROGRAM
             #pragma vertex vert
             #pragma geometry geom
