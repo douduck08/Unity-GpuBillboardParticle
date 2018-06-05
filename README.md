@@ -11,7 +11,7 @@ Using Unity 2018.1.2f1
 * Using Geometry Shader to draw quads for every points.
 * Updating particle position, velocity and color with a Computer Shader.
 * There are 10000 particle in video.
-* GPU is GV-R777OC-1GD
+* Testing GPU is GV-R777OC-1GD
 
 #### Some Notes
 * I used `Graphics.DrawProcedural()` but `Graphics.DrawMesh()`, which is not supporting lighting pass and model matrix.
